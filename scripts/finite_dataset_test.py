@@ -5,7 +5,7 @@ from torchmetrics.classification import BinaryAccuracy
 from qusi.session import finite_datasets_test_session, get_device
 from qusi.model import Hadryss
 
-from transit_dataset import get_transit_finite_test_dataset
+from dataset import get_transit_finite_test_dataset
 
 def main():
     test_light_curve_dataset = get_transit_finite_test_dataset()
