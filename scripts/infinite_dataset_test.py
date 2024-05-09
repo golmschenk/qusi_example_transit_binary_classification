@@ -1,4 +1,6 @@
 import torch
+from torcheval.metrics import BinaryAUROC
+
 from qusi.data import LightCurveDataset
 from qusi.data import LightCurveObservationCollection
 from qusi.model import Hadryss
@@ -27,7 +29,7 @@ def main():
     model = Hadryss.new()
     device = get_device()
     model.load_state_dict(torch.load('sessions/<wandb_run_name>_latest_model.pt', map_location=device))
-    metric_functions = [BinaryAccuracy(), BCELoss()]
+    metric_functions = [BinaryAccuracy(), BCELoss(), BinaryAUROC()]
     results = infinite_datasets_test_session(test_datasets=[test_light_curve_dataset], model=model,
                                              metric_functions=metric_functions, batch_size=100, device=device,
                                              steps=100)
