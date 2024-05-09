@@ -8,7 +8,7 @@ from qusi.experimental.application.tess import TessMissionLightCurve
 
 def main():
     light_curve_path = Path(
-        'data/spoc_transit_experiment/train/positives/hlsp_tess-spoc_tess_phot_0000000004605846-s0044_tess_v1_lc.fits')
+        'data/spoc_transit_experiment/train/positives/<add_downloaded_file_name_here>.fits')
     light_curve = TessMissionLightCurve.from_path(light_curve_path)
     light_curve_figure = Figure(x_axis_label='Time (BTJD)', y_axis_label='Flux')
     light_curve_figure.circle(x=light_curve.times, y=light_curve.fluxes)

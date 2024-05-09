@@ -5,7 +5,7 @@ import torch
 from qusi.data import FiniteStandardLightCurveDataset, LightCurveCollection
 from qusi.model import Hadryss
 from qusi.session import get_device, infer_session
-from dataset import load_times_and_fluxes_from_path
+from dataset import load_times_and_fluxes_from_path, get_infer_paths
 
 
 def main():
