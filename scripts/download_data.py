@@ -35,32 +35,32 @@ def main():
         tic_ids=positive_train_tic_ids,
         download_directory=Path('data/spoc_transit_experiment/train/positives'),
         sectors=sectors,
-        limit=2000)
+        limit=200)
     download_spoc_light_curves_for_tic_ids(
         tic_ids=negative_train_tic_ids,
         download_directory=Path('data/spoc_transit_experiment/train/negatives'),
         sectors=sectors,
-        limit=6000)
+        limit=600)
     download_spoc_light_curves_for_tic_ids(
         tic_ids=positive_validation_tic_ids,
         download_directory=Path('data/spoc_transit_experiment/validation/positives'),
         sectors=sectors,
-        limit=200)
+        limit=20)
     download_spoc_light_curves_for_tic_ids(
         tic_ids=negative_validation_tic_ids,
         download_directory=Path('data/spoc_transit_experiment/validation/negatives'),
         sectors=sectors,
-        limit=600)
+        limit=60)
     download_spoc_light_curves_for_tic_ids(
         tic_ids=positive_test_tic_ids,
         download_directory=Path('data/spoc_transit_experiment/test/positives'),
         sectors=sectors,
-        limit=200)
+        limit=20)
     download_spoc_light_curves_for_tic_ids(
         tic_ids=negative_test_tic_ids,
         download_directory=Path('data/spoc_transit_experiment/test/negatives'),
         sectors=sectors,
-        limit=600)
+        limit=60)
     # In this toy example, we reuse our test light curves as infer light curves. In a real world case, you would likely
     #  want to infer on cases you don't already know the answer for.
     infer_directory_path = Path('data/spoc_transit_experiment/infer')

@@ -1,6 +1,6 @@
 import torch
 from torch.nn import BCELoss
-from torcheval.metrics import BinaryAccuracy, BinaryAUROC
+from torchmetrics.classification import BinaryAccuracy, BinaryAUROC
 
 from qusi.session import finite_datasets_test_session, get_device
 from qusi.model import Hadryss

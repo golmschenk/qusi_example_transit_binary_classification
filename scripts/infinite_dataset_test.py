@@ -1,12 +1,11 @@
 import torch
-from torcheval.metrics import BinaryAUROC
 
 from qusi.data import LightCurveDataset
 from qusi.data import LightCurveObservationCollection
 from qusi.model import Hadryss
 from qusi.session import get_device, infinite_datasets_test_session
 from torch.nn import BCELoss
-from torchmetrics.classification import BinaryAccuracy
+from torchmetrics.classification import BinaryAccuracy, BinaryAUROC
 
 from dataset import get_positive_test_paths, load_times_and_fluxes_from_path, positive_label_function, \
     get_negative_test_paths, negative_label_function
