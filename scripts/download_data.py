@@ -1,7 +1,6 @@
+import numpy as np
 import shutil
 from pathlib import Path
-
-import numpy as np
 
 from qusi.experimental.application.tess import (
     download_spoc_light_curves_for_tic_ids,
@@ -16,8 +15,15 @@ def main():
     spoc_target_tic_ids = get_spoc_tic_id_list_from_mast()
     tess_toi_data_interface = TessToiDataInterface()
     positive_tic_ids = tess_toi_data_interface.toi_dispositions[
+        (tess_toi_data_interface.toi_dispositions[ToiColumns.disposition.value] == 'CP') &
+        # Less than a TESS sector.
+        (tess_toi_data_interface.toi_dispositions[ToiColumns.transit_period__days.value] <= 27) &
+        # Greater than a smaller number to remove bad data points.
+        (tess_toi_data_interface.toi_dispositions[ToiColumns.transit_period__days.value] >= 0.001)
+        ][ToiColumns.tic_id.value]
+    non_negative_tic_ids = tess_toi_data_interface.toi_dispositions[
         tess_toi_data_interface.toi_dispositions[ToiColumns.disposition.value] != 'FP'][ToiColumns.tic_id.value]
-    negative_tic_ids = list(set(spoc_target_tic_ids) - set(positive_tic_ids))
+    negative_tic_ids = list(set(spoc_target_tic_ids) - set(non_negative_tic_ids))
     positive_tic_ids_splits = np.split(
         np.array(positive_tic_ids), [int(len(positive_tic_ids) * 0.8), int(len(positive_tic_ids) * 0.9)])
     positive_train_tic_ids = positive_tic_ids_splits[0].tolist()
