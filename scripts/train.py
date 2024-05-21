@@ -1,4 +1,3 @@
-from qusi.internal.chyrin_model import Chyrin
 from qusi.model import Hadryss
 from qusi.session import TrainHyperparameterConfiguration, train_session
 
