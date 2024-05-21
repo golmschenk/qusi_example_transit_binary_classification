@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="adapt" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
+    <serverData>
+      <paths name="adapt">
+        <serverdata>
+          <mappings>
+            <mapping deploy="qusi_example_transit_binary_classification" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="qusi" local="$PROJECT_DIR$/../qusi" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
