@@ -25,7 +25,8 @@ def main():
     paths_with_confidences = zip(paths, confidences)
     sorted_paths_with_confidences = sorted(
         paths_with_confidences, key=lambda path_with_confidence: path_with_confidence[1], reverse=True)
-    print(sorted_paths_with_confidences)
+    for path, confidence in sorted_paths_with_confidences:
+        print(f'{path}: {confidence}')
 
 
 if __name__ == '__main__':
